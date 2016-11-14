@@ -1,0 +1,17 @@
+<div *ngIf="!formula" class="jumbotron">
+    <h2> No formula found</h2>
+    <p>Have you filled your elements on the other screen?</p>
+</div>
+
+<div *ngIf="formula" class="col-sm-12">
+    <div class="col-sm-12"><label class="label label-info" >Rank: {{formula.rank}}</label></div>
+
+    <div *ngFor="let i of formula.ingredients" class="col-sm-12" >
+        {{i.name}}
+    </div>
+
+    <div class="col-sm-12">
+        <button type="button" class="btn btn-success" (click)="done()">Done!</button>
+    </div>
+</div>
+

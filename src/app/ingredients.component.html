@@ -1,0 +1,20 @@
+<h2>Current Elements</h2>
+
+<div *ngFor="let i of list" class="col-sm-12" >
+    <div class="col-sm-9">
+        <button type="button" class="btn btn-primary btn-block btn-lg" (click)="add(i)">
+            {{i.name}}
+            <span *ngIf="i.quantity>0" class="badge">{{i.quantity}}</span>
+        </button>
+    </div>
+    <div class="col-sm-3">
+        <button *ngIf="i.quantity" type="button" class="btn btn-default btn-block" (click)="remove(i)">Remove</button>
+    </div>
+    <div class="col-sm-12" *ngIf="i.quantity">
+        <div *ngFor="let p of i.properties" class="col-sm-6">
+            <button type="button" class="btn btn-block" [ngClass]="{'btn-success': p.known, 'btn-warning': !p.known}" (click)="toggle(p)">
+                {{p.property.name}}
+            </button>
+        </div>
+    </div>
+</div>
